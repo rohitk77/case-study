@@ -1,0 +1,214 @@
+# this is an example of the Uber API
+# as a demonstration of an API spec in YAML
+swagger: '2.0'
+info:
+  title: Virtual Shopping Product API
+  description: Search Items from different Vendors and purchase online.
+  version: "1.0.0"
+# the domain of the service
+host: localhost:9999
+# array of all schemes that your API supports
+schemes:
+  - http
+# will be prefixed to all paths
+basePath: /product-service/v1
+produces:
+  - application/json
+paths:
+  /createVendor:
+    put:
+      summary: Create Vendor
+      description: Create Vendor
+      parameters:
+        - name: vendorName
+          in: query
+          description: Create Vendor with Name
+          required: true
+          type: string
+          format: double
+      tags:
+        - Product
+      responses:
+        200:
+          description: Vendor Created
+          schema:
+            type: integer
+            description: Vendor ID
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /createProductCategory:
+    put:
+      summary: Create Category
+      description: Create Category
+      parameters:
+        - name: vendorId
+          in: query
+          description: Vendor ID
+          required: true
+          type: integer
+        - name: category
+          in: query
+          description: Create category
+          required: true
+          type: string
+
+      tags:
+        - Product
+      responses:
+        200:
+          description: Category Created
+          schema:
+            type: integer
+            description: CategoryId
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /createProduct:
+    post:
+      tags:
+        - Product
+      summary: Create a product with vendor id and category id
+      description: ""
+      operationId: placeOrder
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Create aproduct
+          required: false
+          schema:
+            $ref: "#/definitions/Product"
+      responses:
+        200:
+          description: Product Created
+          schema:
+            type: integer
+            description: Product Id
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+  /vendorList:
+    get:
+      summary: Get List Of all available Vendors
+      description: Get List Of all available Vendors
+      tags:
+        - Product
+      responses:
+        200:
+          description: A list of all available vendors
+          schema:
+           $ref: '#/definitions/Vendor'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /productCategory:
+    get:
+      summary: Product Category
+      description: Get Product Categories
+      parameters:
+        - name: vendorId
+          in: query
+          description: Vendor supports product category.
+          required: true
+          type: integer
+      tags:
+        - Product
+      responses:
+        200:
+          description: An array of product categories
+          schema:
+            type: array
+            items:
+               $ref: '#/definitions/ProductCategory'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /productList:
+    get:
+      summary: Get Product List by Category
+      description: Get alal products for agiven category
+      parameters:
+        - name: vendorId
+          in: query
+          description: vendor id
+          required: true
+          type: integer
+        - name: categoryId
+          in: query
+          description: product category
+          required: true
+          type: integer
+      tags:
+        - Product
+      responses:
+        200:
+          description: An array of price estimates by product
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Product'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+definitions:
+  Product:
+    type: object
+    properties:
+      vendorId:
+        type: integer
+      categoryId:
+        type: integer
+      productId:
+        type: integer
+      description:
+        type: string
+        description: Description of product.
+      displayName:
+        type: string
+        description: Display name of product.
+      price:
+        type: number
+        description: Proce of product
+      stock:
+        type: integer
+        description: Product Availablity
+  Vendor:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      name:
+        type: string
+  ProductCategory:
+    type: object
+    properties:
+      vendorId:
+        type: integer
+        format: int32
+      categoryId:
+        type: integer
+        format: int32
+      categoryName:
+        type: string
+
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string

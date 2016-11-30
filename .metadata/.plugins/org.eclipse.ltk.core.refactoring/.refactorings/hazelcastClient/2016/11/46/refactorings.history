@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;HazelcastTest.java&apos; to &apos;online-product-service/src/main/java/com.product&apos;&#x0D;&#x0A;- Original project: &apos;hazelcastClient&apos;&#x0D;&#x0A;- Destination element: &apos;online-product-service/src/main/java/com.product&apos;&#x0D;&#x0A;- Original element: &apos;com.hazelcast.client.HazelcastTest.java&apos;" description="Copy compilation unit" destination="=online-product-service/src\/main\/java&lt;com.product" element1="/src\/main\/java&lt;com.hazelcast.client{HazelcastTest.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1478684737517" units="1" version="1.0"/>
+</session>

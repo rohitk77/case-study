@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 4 elements from project &apos;online-product-service&apos;&#x0D;&#x0A;- Original project: &apos;online-product-service&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     com.product.api.ApiException.java&#x0D;&#x0A;     com.product.api.ApiOriginFilter.java&#x0D;&#x0A;     com.product.api.ApiResponseMessage.java&#x0D;&#x0A;     com.product.api.NotFoundException.java" description="Delete elements" element1="/src\/main\/java&lt;com.product.api{ApiException.java" element2="/src\/main\/java&lt;com.product.api{ApiOriginFilter.java" element3="/src\/main\/java&lt;com.product.api{NotFoundException.java" element4="/src\/main\/java&lt;com.product.api{ApiResponseMessage.java" elements="4" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1479290276925" subPackages="false" version="1.0"/>
+</session>

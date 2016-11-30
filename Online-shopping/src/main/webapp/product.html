@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="thirdparty/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="thirdparty/jquery-3.1.0.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="thirdparty/js/bootstrap.min.js"></script>
+<title>Online Shopping</title>
+</head>
+<body style="width: 80%; margin-left: 10%; margin-top: 5%;"
+	onload="loadData();">
+	<a href="index.html">Home</a>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Create Product</h3>
+		</div>
+		<div class="panel-body">
+			<form class="form-inline">
+				<div class="form-group">
+					<label for="exampleInputName2">Vendor Name</label> <select
+						id="vendorName"></select>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputName2">Product Category</label> <select
+						id="productCategory"></select>
+				</div>
+			</form>
+		</div>
+		<div class="panel-body">
+			<form class="form-inline">
+				<div class="form-group">
+					<label for="exampleInputName2">Description</label> <input
+						type="text" class="form-control" id="description" placeholder="">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail2">Display Name</label> <input
+						type="text" class="form-control" id="displayName" placeholder="">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail2">Price</label> <input type="number"
+						class="form-control" id="price" placeholder="">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail2">Stock</label> <input type="number"
+						class="form-control" id="stock" placeholder="">
+				</div>
+				<button type="button" class="btn btn-info"
+					onclick="createProduct();">Create Product</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
+<script>
+	var serverUrl = '/productservice';
+
+	function loadData() {
+		loadVendor();
+		loadCategory();
+	}
+
+	function loadVendor() {
+
+		$.ajax({
+			url : serverUrl + '/vendor',
+			context : document.body,
+			method : 'GET',
+		}).done(
+				function(data) {
+
+					$.each(data, function(index, item) {
+						$('#vendorName').append(
+								$('<option></option>').val(item.id).html(
+										item.name));
+					});
+				});
+	}
+
+	function loadCategory() {
+
+		$.ajax({
+			url : serverUrl + '/productcategory',
+			context : document.body,
+			method : 'GET',
+		}).done(
+				function(data) {
+
+					$.each(data, function(index, item) {
+						$('#productCategory').append(
+								$('<option></option>').val(item.categoryId)
+										.html(item.categoryName));
+					});
+				});
+	}
+
+	function createProduct() {
+
+		var product = new Product();
+
+		product.categoryId = $("#productCategory").val();
+		product.description = $("#description").val();
+		product.displayName = $("#displayName").val();
+		product.price = $("#price").val();
+		product.productId = null
+		product.stock = $("#stock").val();
+		product.vendorId = $("#vendorName").val();
+
+		$.ajax({
+			url : serverUrl + '/product',
+			contentType : "application/json; charset=utf-8",
+			method : 'POST',
+			data : JSON.stringify(product),
+			dataType : 'json'
+		}).done(function(response) {
+			alert('Product has been created with Product Id:' + response);
+		});
+
+	}
+
+	function Product() {
+
+		var categoryId;
+		var description;
+		var displayName;
+		var price;
+		var productId;
+		var stock;
+		var vendorId;
+	}
+</script>

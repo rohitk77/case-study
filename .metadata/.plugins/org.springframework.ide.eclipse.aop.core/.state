@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="apiGateway"/>
+<aop-project name="online-product-service"/>
+<aop-project name="Online-shopping"/>
+</aop-reference-model>

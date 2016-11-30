@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;online-product-service/src/main/java/com.product.api&apos;&#x0D;&#x0A;- Original project: &apos;product-service&apos;&#x0D;&#x0A;- Destination element: &apos;online-product-service/src/main/java/com.product.api&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     com.vs.ps.api.ProductSearchApi.java&#x0D;&#x0A;     com.vs.ps.api.ProductSearchApiController.java" description="Copy compilation units" destination="=online-product-service/src\/main\/java&lt;com.product.api" element1="/src\/main\/java&lt;com.vs.ps.api{ProductSearchApi.java" element2="/src\/main\/java&lt;com.vs.ps.api{ProductSearchApiController.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1478408672768" units="2" version="1.0"/>
+</session>

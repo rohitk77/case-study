@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_CghsYK_jEeaFrOAjKr0MbA" name="NewModel">
+  <packageImport xmi:id="_AH4r0LFpEeafpt1h8-dJIA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="_zcC9QLFmEeafpt1h8-dJIA" name="Rohit"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_0rd9wLFmEeafpt1h8-dJIA" name="RohitInterface"/>
+</uml:Model>

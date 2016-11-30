@@ -1,0 +1,12 @@
+package com.vendor.dao;
+
+import java.util.List;
+
+import com.product.model.Vendor;
+
+public interface VendorDAO {
+
+	void create(Vendor vendor);
+
+	List<Vendor> getAllVendorList();
+}
